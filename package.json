@@ -1,0 +1,22 @@
+{
+  "name": "adf",
+  "version": "0.0.1",
+  "description": "Arch Docker Factory - build docker images for single or group of arch or aur packages",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "shelljs": "^0.7.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kjbreil/ard.git"
+  },
+  "author": "kjbreil",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kjbreil/ard/issues"
+  },
+  "homepage": "https://github.com/kjbreil/ard#readme"
+}
