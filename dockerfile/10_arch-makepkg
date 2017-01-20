@@ -1,0 +1,9 @@
+FROM kjbreil/arch-build
+MAINTAINER kjbreil <kjell.breiland@gmail.com>
+RUN packer -Syu --noconfirm bash-bats par2cmdline systemd semver \
+	python2-markdown python2-cheetah libmms libjpeg-turbo libtiff libpng \
+	libxrender graphite harfbuzz freetype2 fontconfig mesa-libgl cairo \
+	giflib libexif libgdiplus mono libuv c-ares libzen libmediainfo \
+	http-parser nodejs npm python2-lxml
+RUN mkdir -p /opt/build/{makepkg,pacman}
+CMD cp -fR /var/cache/pacman/pkg/* /opt/build/pacman/
