@@ -1,10 +1,17 @@
-/**
- * Pizza delivery prompt example
- * run example by writing `node pizza.js` in your console
- */
 
-'use strict';
 var inquirer = require('inquirer');
+
+// ask this and then that
+exports.start() {
+	ask()
+}
+
+
+ask = function (this, that) {
+	switch (this) {
+		case 'start'
+	}
+}
 
 console.log('Hola! You better know what you are doing...');
 

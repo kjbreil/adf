@@ -9,13 +9,26 @@ const dockers = core.setVars()
 
 inquirer.prompt([
 	{
-		type: 'list',
-		name: 'size',
-		message: 'What size do you need?',
-		choices: ['Large', 'Medium', 'Small'],
-		filter: function (val) {
-			return val.toLowerCase();
-		}
+		type: 'expand',
+		name: 'toppings',
+		message: 'What about the toppings?',
+		choices: [
+			{
+				key: 'p',
+				name: 'Pepperoni and cheese',
+				value: 'PepperoniCheese'
+			},
+			{
+				key: 'a',
+				name: 'All dressed',
+				value: 'alldressed'
+			},
+			{
+				key: 'w',
+				name: 'Hawaiian',
+				value: 'hawaiian'
+			}
+		]
 	}
 	]).then(function (answers) {
     // Use user feedback for... whatever!!

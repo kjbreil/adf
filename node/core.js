@@ -1,6 +1,6 @@
 const fs = require('fs')
 const dateformat = require('dateformat')
-let now = new Date()s
+let now = new Date()
 
 exports.setVars = function() {
 	let dockers = {}
