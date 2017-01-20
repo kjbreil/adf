@@ -1,33 +1,52 @@
 #!/usr/bin
 
-let dateformat = require('dateformat')
-let fs = require('fs')
-
-let docker = require('./node/docker.js')
-
-let now = new Date()
-
-let dockerfiles = fs.readdirSync('./dockerfile/')
-for (let d in dockerfiles) {
-	console.log(dockerfiles[d])
-}
+const docker = require('./node/docker.js')
+const core = require('./node/core.js')
+const inquirer = require('inquirer')
 
 
+const dockers = core.setVars()
 
-let instance = {}
+inquirer.prompt([
+	{
+		type: 'list',
+		name: 'size',
+		message: 'What size do you need?',
+		choices: ['Large', 'Medium', 'Small'],
+		filter: function (val) {
+			return val.toLowerCase();
+		}
+	}
+	]).then(function (answers) {
+    // Use user feedback for... whatever!!
+})
 
-instance.dockerTask = 'run'
-instance.repoName = 'kjbreil'
-instance.imageName = 'arch-base'
-instance.imageVersion = dateformat(now, "isoDate")
-instance.dockerName = 'test'
-instance.dockerCmd = ['ls', '/bin']
-instance.dockerVolumes = ''
-instance.dockerPorts = ''
 
 
-// console.log(instance.dockerTask)
+// for (let d in dockers) {
+// 	let text = dockers[d]
+// 	console.log(text)
+// }
 
 
-docker.docker(instance.dockerTask, instance.repoName, instance.imageName, instance.imageVersion, instance.dockerName, instance.dockerCmd, instance.dockerVolumes, instance.dockerPorts)
+/*
 
+options:
+-stack
+-rootfs
+	build
+	build local
+-build
+	all
+	bash
+	single
+	run
+-package
+	all
+	single
+	bash
+	run
+-pkg_rootfs
+	build
+
+*/

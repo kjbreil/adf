@@ -1,10 +1,10 @@
 #!/usr/bin
 
 const spawn = require('child_process').spawn
+// dockerTask, repoName, imageName, imageVersion, dockerName, dockerCmd, dockerVolumes, dockerPorts
+exports.docker = function(d) {
 
-exports.docker = function(dockerTask, repoName, imageName, imageVersion, dockerName, dockerCmd, dockerVolumes, dockerPorts) {
-
-	args = argSet(dockerTask, repoName, imageName, imageVersion, dockerName, dockerCmd, dockerVolumes, dockerPorts)
+	args = argSet(d.dockerTask, d.repoName, d.imageName, d.imageVersion, d.dockerName, d.dockerCmd, d.dockerVolumes, d.dockerPorts)
 
 	// // One of these day's I'll implement real logging
 	// console.log("docker", [].concat(args))
